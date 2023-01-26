@@ -1,7 +1,7 @@
 # A1 - Piraten Karpen
 
-  * Author: < You name here >
-  * Email: < Your email here >
+  * Author: < Jeffery Liu >
+  * Email: < liu1121@mcmaster.ca >
 
 ## Build and Execution
 
@@ -29,11 +29,11 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 
 | MVP? | Id  | Feature  | Status  |  Started  | Delivered |
 | :-:  |:-:  |---       | :-:     | :-:       | :-:       |
-| x   | F01 | Roll a dice |  S | 01/01/23 |  |
-| x   | F02 | Roll eight dices  |  B (F01) |   |
-| x   | F03 | Select how many games as command-line arg.  |  P  |   |
-| x   | F04 | end of game with three cranes | P | |
+| x   | F01 | Roll a dice | S | 01/01/23 | 26/01/23 |
+| x   | F02 | Roll eight dice | S | 26/01/23  |
+| x   | F03 | Compute number of golds and diamonds | S | 26/01/23 |  |
+| x   | F04 | End of game with three skulls | P | |
 | x   | F05 | Player keeping random dice at their turn | B (F02) | | 
-| x   | F06 | Score points: 3-of-a-kind | B (F04) | | 
+| x   | F06 | Repeat game 42 times, print out result| B (F04) | | 
 | ... | ... | ... |
 
