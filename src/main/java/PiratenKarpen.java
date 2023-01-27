@@ -30,6 +30,7 @@ public class PiratenKarpen {
             }
             System.out.println("Number of golds: " + numOfGold);
             System.out.println("Number of diamonds: " + numOfDiamond);
+            System.out.println("Number of skulls: " + numOfSkull);
             System.out.println("That's all folks!");
         }
     }
