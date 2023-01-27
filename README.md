@@ -34,7 +34,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F03 | Compute number of golds and diamonds | D | 26/01/23 | 26/01/23 |
 | x   | F04 | End of game with three skulls | D | 26/01/23 | 26/01/23 |
 | x   | F05 | Player keeps on rerolling until turn ends | D | 26/01/23 | 26/01/23 |
-| x   | F06 | Player keeping random dice at their turn | S | 26/01/23 | 
-| x   | F07 | Repeat game 42 times, print out result| P | | 
+| x   | F06 | Player keeping random dice at their turn | D | 26/01/23 | 27/01/23 |
+| x   | F07 | Repeat game 42 times, print out result| S | 26/01/23 | 
 | ... | ... | ... |
 
