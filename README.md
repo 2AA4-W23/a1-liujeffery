@@ -23,14 +23,14 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
  * Status: 
    * Pending (P), Started (S), Blocked (B), Done (D)
  * Definition of Done (DoD):
-   * < Your DoD goes here >
+   * If after five different tests, the feature is still working as intended. Each scenario should test the feature in a different way and handle edge cases.
 
 ### Backlog 
 
 | MVP? | Id  | Feature  | Status  |  Started  | Delivered |
 | :-:  |:-:  |---       | :-:     | :-:       | :-:       |
 | x   | F01 | Roll a dice | S | 01/01/23 | 26/01/23 |
-| x   | F02 | Roll eight dice | S | 26/01/23  |
+| x   | F02 | Roll eight dice | S | 26/01/23 | 26/01/23 |
 | x   | F03 | Compute number of golds and diamonds | S | 26/01/23 |  |
 | x   | F04 | End of game with three skulls | P | |
 | x   | F05 | Player keeping random dice at their turn | B (F02) | | 
