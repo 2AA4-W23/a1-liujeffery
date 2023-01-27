@@ -32,8 +32,9 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F01 | Roll a dice | S | 01/01/23 | 26/01/23 |
 | x   | F02 | Roll eight dice | S | 26/01/23 | 26/01/23 |
 | x   | F03 | Compute number of golds and diamonds | S | 26/01/23 | 26/01/23 |
-| x   | F04 | End of game with three skulls | P | |
-| x   | F05 | Player keeping random dice at their turn | B (F02) | | 
-| x   | F06 | Repeat game 42 times, print out result| B (F04) | | 
+| x   | F04 | End of game with three skulls | S | 26/01/23 |
+| x   | F05 | Player keeps on rerolling until turn ends | B(F05) | |
+| x   | F06 | Player keeping random dice at their turn | P | | 
+| x   | F07 | Repeat game 42 times, print out result| P | | 
 | ... | ... | ... |
 

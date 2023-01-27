@@ -8,21 +8,30 @@ public class PiratenKarpen {
         
         int numOfGold = 0;
         int numOfDiamond = 0;
+        int numOfSkull = 0;
 
-        for (int i = 0; i < 8; i ++){
-            Dice myDice = new Dice();
-            Faces roll = myDice.roll();
-            System.out.println(roll);
-            if (roll == Faces.GOLD){
-                numOfGold ++;
+        int diceLeft = 8;
+        
+        while (numOfSkull < 3){
+            numOfSkull = 0;
+            for (int i = 0; i < diceLeft; i ++){
+                Dice myDice = new Dice();
+                Faces roll = myDice.roll();
+                System.out.println(roll);
+                if (roll == Faces.GOLD){
+                    numOfGold ++;
+                }
+                else if (roll == Faces.DIAMOND){
+                    numOfDiamond ++;
+                }
+                else if (roll == Faces.SKULL){
+                    numOfSkull ++;
+                }
             }
-            else if (roll == Faces.DIAMOND){
-                numOfDiamond ++;
-            }
+            System.out.println("Number of golds: " + numOfGold);
+            System.out.println("Number of diamonds: " + numOfDiamond);
+            System.out.println("That's all folks!");
         }
-        System.out.println("Number of golds: " + numOfGold);
-        System.out.println("Number of diamonds: " + numOfDiamond);
-        System.out.println("That's all folks!");
     }
     
 }
