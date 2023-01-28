@@ -3,3 +3,7 @@
 01/14/23: Finishing up step 1.
 
 01/26/23: I waiting way too long to keep on working on this assignment oops. Working on delivering MVP.
+
+01/27/23: Finishing up MVP and moving on to step 3.
+
+01/28/23: Some misinterpretation of what the MVP expected meant a much longer time finishing it up. Now trying to blaze through steps ASAP.
