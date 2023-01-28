@@ -39,5 +39,8 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F05 | Player keeps on rerolling until turn ends | D | 26/01/23 | 26/01/23 |
 | x   | F06 | Player keeping random dice at their turn | D | 26/01/23 | 27/01/23 |
 | x   | F07 | Repeat game 42 times, print out result| D | 26/01/23 | 27/01/23 |
-| ... | ... | ... |
+|     | F08 | Points are calculated based on combo | D | 28/01/23 | 28/01/23 |
+|     | F09 | Strategy to take the dice with the largest combo | S | 28/01/23 |
+|     | F10 | Strategy to combine gold and diamond score with combo | P |
+|     | F11 | Choose which strategy to do simulation with | P | 
 

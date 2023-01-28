@@ -12,12 +12,13 @@ public class PiratenKarpen {
         Random random = new Random();
         Dice myDice = new Dice();
         boolean debugMode = false;
+        int gamesToPlay = 3;
 
         if (args.length >= 1 && args[args.length - 1].equals("debug")){
             debugMode = true;
         }
         
-        for (int k = 1; k <= 42; k++){
+        for (int k = 1; k <= gamesToPlay; k++){
             int [] pointsPerPlayer = new int[2];
 
             for (int j = 0; j < 2; j++){
@@ -28,7 +29,7 @@ public class PiratenKarpen {
 
                 ArrayList<Faces> diceList = new ArrayList<>();
 
-                while (numOfSkull < 3){
+                while (true){
                     int diceListSize = diceList.size();
                     
                     for (int i = 0; i < (diceLeft - diceListSize); i++){
@@ -41,19 +42,57 @@ public class PiratenKarpen {
                         diceList.remove(Faces.SKULL);
                     }
 
+                    if (debugMode){
+                        logger.debug("Skulls: " + numOfSkull);
+                    }
+
+                    if (numOfSkull >= 3){
+                        break;
+                    }
+
                     int randomRemove = random.nextInt(Integer.max(1, diceLeft - 2));
                     
                     for (int i = 0; i < randomRemove; i++){
                         diceList.remove(random.nextInt(diceList.size()));
                     }
+                }
+
+                String diceNotRemoved = "Dice not removed: ";
+                for (int i = 0; i < diceList.size(); i++){
+                    diceNotRemoved += (diceList.get(i) + " ");
+                }
+                if (debugMode){
+                    logger.debug(diceNotRemoved);
+                }
+
+                int points = 0;
+                for (int i = 0; i < Faces.values().length; i++){
+                    int combo = 0;
+                    for (int l = 0; l < diceList.size(); l++){
+                        if (diceList.get(l).equals(Faces.values()[i])){
+                            combo ++;
+                        }
+                    }
+                    switch (combo){
+                        case 3:
+                            points += 100;
+                            break;
+                        case 4:
+                            points += 200;
+                        case 5:
+                            points += 500;
+                        case 6:
+                            points += 1000;
+                        case 7:
+                            points += 2000;
+                        case 8:
+                            points += 4500;
+                    }
                     
-                    String diceNotRemoved = "Dice not removed: ";
-                    for (int i = 0; i < diceList.size(); i++){
-                        diceNotRemoved += (diceList.get(i) + " ");
-                    }
-                    if (debugMode){
-                        logger.debug(diceNotRemoved);
-                    }
+                }
+
+                if (debugMode){
+                    logger.debug(points + " points for combo");
                 }
 
                 while (diceList.contains(Faces.GOLD)){
@@ -66,9 +105,10 @@ public class PiratenKarpen {
                     diceList.remove(Faces.DIAMOND);
                 }
 
-                int points = (numOfGold + numOfDiamond) * 100;
+                points += (numOfGold + numOfDiamond) * 100;
                 pointsPerPlayer[j] = points;
                 
+                logger.debug("Total points for player " + (j + 1) + ": " + points);
             }
             if (pointsPerPlayer[0] > pointsPerPlayer[1]){
                 if (debugMode){
