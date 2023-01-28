@@ -15,6 +15,9 @@
     * `mvn package`
   * To run the packaged delivery:
     * `java -jar target/piraten-karpen-jar-with-dependencies.jar` 
+  * To run the project on trace mode ():
+    * `mvn -q exec:java -Dexec.args="debug"`
+    * With multiple command line arguments, "debug" should be the last one (eg. "test info debug")
 
 Remark: **We are assuming here you are using a _real_ shell (e.g., anything but PowerShell on Windows)**
 

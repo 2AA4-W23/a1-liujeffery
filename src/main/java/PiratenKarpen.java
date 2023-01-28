@@ -2,14 +2,20 @@ import pk.Dice;
 import pk.Faces;
 import java.util.ArrayList;
 import java.util.Random;
+import org.apache.logging.log4j.Logger;
+import org.apache.logging.log4j.LogManager;
 
 public class PiratenKarpen {
+    private static final Logger logger = LogManager.getLogger(PiratenKarpen.class);
     public static void main(String[] args) {
-        System.out.println("Welcome to Piraten Karpen Simulator!");
-
         int [] wins = new int [2];
         Random random = new Random();
         Dice myDice = new Dice();
+        boolean debugMode = false;
+
+        if (args.length >= 1 && args[args.length - 1].equals("debug")){
+            debugMode = true;
+        }
         
         for (int k = 1; k <= 42; k++){
             int [] pointsPerPlayer = new int[2];
@@ -23,7 +29,6 @@ public class PiratenKarpen {
                 ArrayList<Faces> diceList = new ArrayList<>();
 
                 while (numOfSkull < 3){
-                    
                     int diceListSize = diceList.size();
                     
                     for (int i = 0; i < (diceLeft - diceListSize); i++){
@@ -35,11 +40,19 @@ public class PiratenKarpen {
                         numOfSkull ++;
                         diceList.remove(Faces.SKULL);
                     }
-                    
-                    int randomRemove = random.nextInt(diceLeft - 2);
+
+                    int randomRemove = random.nextInt(Integer.max(1, diceLeft - 2));
                     
                     for (int i = 0; i < randomRemove; i++){
                         diceList.remove(random.nextInt(diceList.size()));
+                    }
+                    
+                    String diceNotRemoved = "Dice not removed: ";
+                    for (int i = 0; i < diceList.size(); i++){
+                        diceNotRemoved += (diceList.get(i) + " ");
+                    }
+                    if (debugMode){
+                        logger.debug(diceNotRemoved);
                     }
                 }
 
@@ -58,15 +71,21 @@ public class PiratenKarpen {
                 
             }
             if (pointsPerPlayer[0] > pointsPerPlayer[1]){
-                System.out.println("Player 1 wins round " + k);
+                if (debugMode){
+                    logger.debug("Player 1 wins round " + k);
+                }
                 wins[0] ++;
             }
             else if (pointsPerPlayer[0] < pointsPerPlayer[1]){
-                System.out.println("Player 2 wins round " + k);
+                if (debugMode){
+                    logger.debug("Player 2 wins round " + k);
+                }
                 wins[1] ++; 
             }
             else{
-                System.out.println("Round " + k + " is a tie");
+                if (debugMode){
+                    logger.debug("Round " + k + " is a tie");
+                }
             }
         }
         System.out.println("Player 1 won " + Math.round(wins[0]/0.42) + "% of times.");

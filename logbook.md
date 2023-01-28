@@ -7,3 +7,5 @@
 01/27/23: Finishing up MVP and moving on to step 3.
 
 01/28/23: Some misinterpretation of what the MVP expected meant a much longer time finishing it up. Now trying to blaze through steps ASAP.
+
+01/28/23: After backtracking to complete step 2, finished implementing logging statements and the rest of step 3, now moving onto step 4.
