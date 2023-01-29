@@ -44,4 +44,7 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 |     | F08 | Points are calculated based on combo | D | 28/01/23 | 28/01/23 |
 |     | F09 | Strategy to take the dice with the largest combo | D | 28/01/23 | 29/01/23 |
 |     | F10 | Choose which strategy to do simulation with | D | 29/01/23 | 29/01/23 |
-
+|     | F11 | Introduce the deck of cards | S | 29/01/23 |
+|     | F12 | Add a shuffle and draw method | P |
+|     | F13 | Add sea battle effect on turn | P |
+|     | F14 | Add strategy specifically for sea battle | P | 
