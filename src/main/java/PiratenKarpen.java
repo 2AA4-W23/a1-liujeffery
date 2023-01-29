@@ -1,4 +1,5 @@
 import pk.RandomPlayer;
+import pk.BattlePlayer;
 import pk.Cards;
 import pk.ComboPlayer;
 import pk.Deck;
@@ -22,7 +23,7 @@ public class PiratenKarpen {
         }
 
         Player player1 = new RandomPlayer(debugMode);
-        Player player2 = new ComboPlayer(debugMode);
+        Player player2 = new BattlePlayer(debugMode);
 
         if (args.length >= 3){
             if (args[0].equals("combo")){
