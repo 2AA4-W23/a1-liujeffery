@@ -14,6 +14,11 @@ public class Deck {
     public Deck(boolean debugMode){
         this.debugMode = debugMode;
         deck = new ArrayList<>();
+
+        populateDeck();
+    }
+
+    public void populateDeck(){
         int numOfSeaBattle4 = 2;
         int numOfSeaBattle3 = 4;
         int numOfMonkeyBusiness = 25;
@@ -57,7 +62,7 @@ public class Deck {
 
     public Cards draw(){
         if (deck.size() == 0){
-            return Cards.NOP;
+            populateDeck();
         }
 
         Cards drawnCard = deck.remove(0);

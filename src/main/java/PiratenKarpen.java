@@ -48,6 +48,9 @@ public class PiratenKarpen {
             Cards card = deck.draw();
 
             pointsPerPlayer[0] = playTurn(player1, card);
+
+            card = deck.draw();
+            
             pointsPerPlayer[1] = playTurn(player2, card);
             
             if (pointsPerPlayer[0] > pointsPerPlayer[1]){
