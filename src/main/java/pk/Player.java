@@ -11,7 +11,6 @@ public abstract class Player {
     boolean debugMode;
     private static final Logger logger = LogManager.getLogger(RandomPlayer.class);
     
-
     public abstract void chooseDiceToKeep(int diceLeft);
 
     public Player(boolean debugMode){

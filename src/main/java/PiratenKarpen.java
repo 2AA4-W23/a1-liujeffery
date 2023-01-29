@@ -1,5 +1,6 @@
 import pk.RandomPlayer;
 import pk.ComboPlayer;
+import pk.Deck;
 import pk.Player;
 
 import org.apache.logging.log4j.Logger;
@@ -13,20 +14,27 @@ public class PiratenKarpen {
         int [] wins = new int [2];
         int gamesToPlay = 42;
 
+        if (args.length >= 1){
+            if (args[args.length - 1].equals("debug")){
+                debugMode = true;
+            }
+        }
+
         Player player1 = new RandomPlayer(debugMode);
         Player player2 = new ComboPlayer(debugMode);
 
-        if (args.length >= 1){
+        if (args.length >= 3){
             if (args[0].equals("combo")){
                 player1 = new ComboPlayer(debugMode);
             }
             if(args[1].equals("random")){
                 player2 = new RandomPlayer(debugMode);
             }
-            if (args[args.length - 1].equals("debug")){
-                debugMode = true;
-            }
+            else{}
         }
+        
+        Deck deck = new Deck(debugMode);
+        deck.draw();
 
         for (int k = 1; k <= gamesToPlay; k++){
             int [] pointsPerPlayer = new int[2];

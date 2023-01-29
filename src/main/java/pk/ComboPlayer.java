@@ -12,10 +12,6 @@ public class ComboPlayer extends Player{
     public void chooseDiceToKeep(int diceLeft) {
         Map<Faces, Integer> diceCount = new HashMap<>();
 
-        if (debugMode){
-            showDice();
-        }
-
         diceList.forEach((n)->{
             if(!diceCount.containsKey(n)){
                 diceCount.put(n, 1);
