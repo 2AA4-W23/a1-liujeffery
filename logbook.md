@@ -15,3 +15,5 @@
 01/29/23: Step 5 moving smoothly. About to implement sea battle effect during turn, then strategy, then questions.
 
 01/29/23: Fixed bug where dice rolls for each player would not reset, from this feature onwards.
+
+01/29/23: Done code for step 5. Finishing up questions, then taking a break before completing step 6.

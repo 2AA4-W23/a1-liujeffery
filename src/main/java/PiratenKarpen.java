@@ -23,16 +23,21 @@ public class PiratenKarpen {
         }
 
         Player player1 = new RandomPlayer(debugMode);
-        Player player2 = new BattlePlayer(debugMode);
+        Player player2 = new ComboPlayer(debugMode);
 
         if (args.length >= 3){
             if (args[0].equals("combo")){
                 player1 = new ComboPlayer(debugMode);
             }
+            else if (args[0].equals("battle")){
+                player1 = new BattlePlayer(debugMode);
+            }
             if(args[1].equals("random")){
                 player2 = new RandomPlayer(debugMode);
             }
-            else{}
+            else if (args[1].equals("battle")){
+                player2 = new BattlePlayer(debugMode);
+            }
         }
         
         Deck deck = new Deck(debugMode);

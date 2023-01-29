@@ -20,6 +20,7 @@
     * With multiple command line arguments, "debug" should be the last one (eg. "random combo debug")
   * By default, player 1 keeps random dice and player 2 keeps the largest combo. To change behaviour:
     * `mvn -q exec:java -Dexec.args="combo combo"` to set behaviour of player 1 and 2 respectively
+    * "random" = keeping random dice, "combo" = choosing dice to make largest combo, "battle" = choosing dice to beat "Sea Battle" card
 
 Remark: **We are assuming here you are using a _real_ shell (e.g., anything but PowerShell on Windows)**
 
@@ -48,4 +49,4 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 |     | F12 | Add a shuffle and draw method | D | 29/01/23 | 29/01/23 |
 |     | F13 | Add sea battle effect on turn | D | 29/01/23 | 29/01/23 |
 |     | F14 | Add strategy specifically for sea battle | D | 29/01/23 | 29/01/23 |
-|     | F15 | Add command line argument implementation for battle strat | S | 29/01/23 | 
+|     | F15 | Add command line argument for battle strat | D | 29/01/23 | 29/01/23 |

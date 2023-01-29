@@ -9,7 +9,7 @@ import org.apache.logging.log4j.Logger;
 public abstract class Player {
     protected List<Faces> diceList;
     boolean debugMode;
-    private static final Logger logger = LogManager.getLogger(RandomPlayer.class);
+    private static final Logger logger = LogManager.getLogger(Player.class);
     
     public abstract void chooseDiceToKeep(int diceLeft);
 
@@ -51,6 +51,8 @@ public abstract class Player {
                 break;
             case SEA_BATTLE_3:
                 seaBattle3 = true;
+                break;
+            case NOP:
                 break;
         }
         
