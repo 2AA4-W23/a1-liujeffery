@@ -50,3 +50,5 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 |     | F13 | Add sea battle effect on turn | D | 29/01/23 | 29/01/23 |
 |     | F14 | Add strategy specifically for sea battle | D | 29/01/23 | 29/01/23 |
 |     | F15 | Add command line argument for battle strat | D | 29/01/23 | 29/01/23 |
+|     | F16 | Add Monkey Business into deck of cards | D | 29/01/23 | 29/01/23 |
+|     | F17 | Add turn effect for Monkey Business | B(F16) |

@@ -16,13 +16,17 @@ public class Deck {
         deck = new ArrayList<>();
         int numOfSeaBattle4 = 2;
         int numOfSeaBattle3 = 4;
-        int numOfNop = 29;
+        int numOfMonkeyBusiness = 4;
+        int numOfNop = 25;
 
         for (int i = 0; i < numOfSeaBattle4; i++){
             deck.add(Cards.SEA_BATTLE_4);
         }
         for (int i = 0; i < numOfSeaBattle3; i++){
             deck.add(Cards.SEA_BATTLE_3);
+        }
+        for(int i = 0; i < numOfMonkeyBusiness; i++){
+            deck.add(Cards.MONKEY_BUSINESS);
         }
         for (int i = 0; i < numOfNop; i++){
             deck.add(Cards.NOP);
