@@ -32,10 +32,6 @@ public abstract class Player {
             diceLeft --;
             diceList.remove(Faces.SKULL);
         }
-        
-        if (debugMode){
-            logger.debug("Dice left: " + diceLeft);
-        }
 
         return diceLeft;
     }
@@ -44,6 +40,7 @@ public abstract class Player {
         int points = 0;
         boolean seaBattle4 = false;
         boolean seaBattle3 = false;
+        boolean monkeyBusiness = false;
 
         switch (card){
             case SEA_BATTLE_4:
@@ -52,51 +49,51 @@ public abstract class Player {
             case SEA_BATTLE_3:
                 seaBattle3 = true;
                 break;
+            case MONKEY_BUSINESS:
+                monkeyBusiness = true;
             case NOP:
                 break;
         }
         
         int numOfGold = 0;
         int numOfDiamond = 0;
-        while (diceList.contains(Faces.GOLD)){
-            numOfGold++;
-            diceList.remove(Faces.GOLD);
-        }
-        while (diceList.contains(Faces.DIAMOND)){
-            numOfDiamond++;
-            diceList.remove(Faces.DIAMOND);
+        int monkeyBusinessCombo = 0;
+
+        for (int i = 0; i < diceList.size(); i++){
+            if (diceList.get(i).equals(Faces.GOLD)){
+                numOfGold++;
+            }
+            else if (diceList.get(i).equals(Faces.DIAMOND)){
+                numOfDiamond++;
+            }
+            else if (monkeyBusiness && (diceList.get(i).equals(Faces.MONKEY) ||
+            diceList.get(i).equals(Faces.PARROT))){
+                monkeyBusinessCombo ++;
+            }
         }
 
+        points += pointsOffCombo(monkeyBusinessCombo);
         points += (numOfGold + numOfDiamond) * 100;
 
+        if (debugMode){
+            logger.debug("Points before combo: " + points);
+        }
+
         for (int i = 0; i < Faces.values().length; i++){
+            if(monkeyBusiness && (Faces.values()[i].equals(Faces.MONKEY) || 
+            Faces.values()[i].equals(Faces.PARROT))){
+                continue;
+            }
+
             int combo = 0;
             for (int l = 0; l < diceList.size(); l++){
                 if (diceList.get(l).equals(Faces.values()[i])){
                     combo ++;
                 }
             }
-            
-            switch (combo){
-                case 3:
-                    points += 100;
-                    break;
-                case 4:
-                    points += 200;
-                    break;
-                case 5:
-                    points += 500;
-                    break;
-                case 6:
-                    points += 1000;
-                    break;
-                case 7:
-                    points += 2000;
-                    break;
-                case 8:
-                    points += 4500;
-                    break;
-            }
+
+            points += pointsOffCombo(combo);
+
             if (seaBattle4 && Faces.values()[i].equals(Faces.SABER)){
                 if (combo >= 4){
                     points += 1000;
@@ -134,5 +131,23 @@ public abstract class Player {
 
     public void reset(){
         diceList.clear();
+    }
+
+    public int pointsOffCombo(int combo){
+        switch (combo){
+            case 3:
+                return 100;
+            case 4:
+                return 200;
+            case 5:
+                return 500;
+            case 6:
+                return 1000;
+            case 7:
+                return 2000;
+            case 8:
+                return 4500;
+        }
+        return 0;
     }
 }

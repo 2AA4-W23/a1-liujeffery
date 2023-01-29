@@ -16,8 +16,8 @@ public class Deck {
         deck = new ArrayList<>();
         int numOfSeaBattle4 = 2;
         int numOfSeaBattle3 = 4;
-        int numOfMonkeyBusiness = 4;
-        int numOfNop = 25;
+        int numOfMonkeyBusiness = 25;
+        int numOfNop = 4;
 
         for (int i = 0; i < numOfSeaBattle4; i++){
             deck.add(Cards.SEA_BATTLE_4);
