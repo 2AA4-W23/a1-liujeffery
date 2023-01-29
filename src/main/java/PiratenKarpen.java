@@ -13,16 +13,23 @@ public class PiratenKarpen {
         int [] wins = new int [2];
         int gamesToPlay = 42;
 
-        if (args.length >= 1 && args[args.length - 1].equals("debug")){
-            debugMode = true;
+        Player player1 = new RandomPlayer(debugMode);
+        Player player2 = new ComboPlayer(debugMode);
+
+        if (args.length >= 1){
+            if (args[0].equals("combo")){
+                player1 = new ComboPlayer(debugMode);
+            }
+            if(args[1].equals("random")){
+                player2 = new RandomPlayer(debugMode);
+            }
+            if (args[args.length - 1].equals("debug")){
+                debugMode = true;
+            }
         }
-        //RandomPlayer player2 = new RandomPlayer(debugMode);
-        
+
         for (int k = 1; k <= gamesToPlay; k++){
             int [] pointsPerPlayer = new int[2];
-
-            Player player1 = new RandomPlayer(debugMode);
-            Player player2 = new ComboPlayer(debugMode);
 
             pointsPerPlayer[0] = playTurn(player1);
             pointsPerPlayer[1] = playTurn(player2);

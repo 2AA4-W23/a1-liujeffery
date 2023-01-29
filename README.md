@@ -15,9 +15,11 @@
     * `mvn package`
   * To run the packaged delivery:
     * `java -jar target/piraten-karpen-jar-with-dependencies.jar` 
-  * To run the project on trace mode ():
+  * To run the project on trace mode:
     * `mvn -q exec:java -Dexec.args="debug"`
-    * With multiple command line arguments, "debug" should be the last one (eg. "test info debug")
+    * With multiple command line arguments, "debug" should be the last one (eg. "random combo debug")
+  * By default, player 1 keeps random dice and player 2 keeps the largest combo. To change behaviour:
+    * `mvn -q exec:java -Dexec.args="combo combo"` to set behaviour of player 1 and 2 respectively
 
 Remark: **We are assuming here you are using a _real_ shell (e.g., anything but PowerShell on Windows)**
 
@@ -41,5 +43,5 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 | x   | F07 | Repeat game 42 times, print out result| D | 26/01/23 | 27/01/23 |
 |     | F08 | Points are calculated based on combo | D | 28/01/23 | 28/01/23 |
 |     | F09 | Strategy to take the dice with the largest combo | D | 28/01/23 | 29/01/23 |
-|     | F10 | Choose which strategy to do simulation with | S | 29/01/23 |
+|     | F10 | Choose which strategy to do simulation with | D | 29/01/23 | 29/01/23 |
 
