@@ -9,3 +9,5 @@
 01/28/23: Some misinterpretation of what the MVP expected meant a much longer time finishing it up. Now trying to blaze through steps ASAP.
 
 01/28/23: After backtracking to complete step 2, finished implementing logging statements and the rest of step 3, now moving onto step 4.
+
+01/29/23: Working through implementation of step 4. Will write out questions, and then onto step 5.
