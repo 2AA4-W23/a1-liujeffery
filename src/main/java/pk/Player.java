@@ -40,8 +40,32 @@ public abstract class Player {
         return diceLeft;
     }
 
-    public int calculatePoints(){
+    public int calculatePoints(Cards card){
         int points = 0;
+        boolean seaBattle4 = false;
+        boolean seaBattle3 = false;
+
+        switch (card){
+            case SEA_BATTLE_4:
+                seaBattle4 = true;
+                break;
+            case SEA_BATTLE_3:
+                seaBattle3 = true;
+                break;
+        }
+        
+        int numOfGold = 0;
+        int numOfDiamond = 0;
+        while (diceList.contains(Faces.GOLD)){
+            numOfGold++;
+            diceList.remove(Faces.GOLD);
+        }
+        while (diceList.contains(Faces.DIAMOND)){
+            numOfDiamond++;
+            diceList.remove(Faces.DIAMOND);
+        }
+
+        points += (numOfGold + numOfDiamond) * 100;
 
         for (int i = 0; i < Faces.values().length; i++){
             int combo = 0;
@@ -50,6 +74,7 @@ public abstract class Player {
                     combo ++;
                 }
             }
+            
             switch (combo){
                 case 3:
                     points += 100;
@@ -70,27 +95,29 @@ public abstract class Player {
                     points += 4500;
                     break;
             }
-            
+            if (seaBattle4 && Faces.values()[i].equals(Faces.SABER)){
+                if (combo >= 4){
+                    points += 1000;
+                }
+                else{
+                    points = 0;
+                    break;
+                }
+            }
+            else if (seaBattle3 && Faces.values()[i].equals(Faces.SABER)){
+                if (combo >= 3){
+                    points += 500;
+                }
+                else{
+                    points = 0;
+                    break;
+                }
+            }
         }
 
         if (debugMode){
             logger.debug(points + " points for combo");
         }
-
-        int numOfGold = 0;
-        int numOfDiamond = 0;
-
-        while (diceList.contains(Faces.GOLD)){
-            numOfGold++;
-            diceList.remove(Faces.GOLD);
-        }
-
-        while (diceList.contains(Faces.DIAMOND)){
-            numOfDiamond++;
-            diceList.remove(Faces.DIAMOND);
-        }
-
-        points += (numOfGold + numOfDiamond) * 100;
 
         return points;
     }
@@ -101,5 +128,9 @@ public abstract class Player {
             diceNotRemoved += (diceList.get(i) + " ");
         }
         logger.debug(diceNotRemoved);
+    }
+
+    public void reset(){
+        diceList.clear();
     }
 }

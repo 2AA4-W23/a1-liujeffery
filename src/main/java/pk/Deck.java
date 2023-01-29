@@ -14,11 +14,15 @@ public class Deck {
     public Deck(boolean debugMode){
         this.debugMode = debugMode;
         deck = new ArrayList<>();
-        int numOfSeaBattle = 6;
+        int numOfSeaBattle4 = 2;
+        int numOfSeaBattle3 = 4;
         int numOfNop = 29;
 
-        for (int i = 0; i < numOfSeaBattle; i++){
-            deck.add(Cards.SEA_BATTLE);
+        for (int i = 0; i < numOfSeaBattle4; i++){
+            deck.add(Cards.SEA_BATTLE_4);
+        }
+        for (int i = 0; i < numOfSeaBattle3; i++){
+            deck.add(Cards.SEA_BATTLE_3);
         }
         for (int i = 0; i < numOfNop; i++){
             deck.add(Cards.NOP);
@@ -48,6 +52,10 @@ public class Deck {
     }
 
     public Cards draw(){
+        if (deck.size() == 0){
+            return Cards.NOP;
+        }
+
         Cards drawnCard = deck.remove(0);
 
         if (debugMode){

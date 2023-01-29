@@ -46,5 +46,5 @@ Remark: **We are assuming here you are using a _real_ shell (e.g., anything but 
 |     | F10 | Choose which strategy to do simulation with | D | 29/01/23 | 29/01/23 |
 |     | F11 | Introduce the deck of cards | D | 29/01/23 | 29/01/23 |
 |     | F12 | Add a shuffle and draw method | D | 29/01/23 | 29/01/23 |
-|     | F13 | Add sea battle effect on turn | S | 29/01/23 |
-|     | F14 | Add strategy specifically for sea battle | P | 
+|     | F13 | Add sea battle effect on turn | D | 29/01/23 | 29/01/23 |
+|     | F14 | Add strategy specifically for sea battle | S | 29/01/23 | 

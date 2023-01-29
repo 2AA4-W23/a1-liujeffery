@@ -1,4 +1,5 @@
 import pk.RandomPlayer;
+import pk.Cards;
 import pk.ComboPlayer;
 import pk.Deck;
 import pk.Player;
@@ -34,13 +35,14 @@ public class PiratenKarpen {
         }
         
         Deck deck = new Deck(debugMode);
-        deck.draw();
 
         for (int k = 1; k <= gamesToPlay; k++){
             int [] pointsPerPlayer = new int[2];
 
-            pointsPerPlayer[0] = playTurn(player1);
-            pointsPerPlayer[1] = playTurn(player2);
+            Cards card = deck.draw();
+
+            pointsPerPlayer[0] = playTurn(player1, card);
+            pointsPerPlayer[1] = playTurn(player2, card);
             
             if (pointsPerPlayer[0] > pointsPerPlayer[1]){
                 if (debugMode){
@@ -59,13 +61,16 @@ public class PiratenKarpen {
                     logger.debug("Round " + k + " is a tie");
                 }
             }
+
+            player1.reset();
+            player2.reset();
         }
         System.out.println("Player 1 won " + Math.round(wins[0]/(gamesToPlay / 100.0)) + "% of times.");
         System.out.println("Player 2 won " + Math.round(wins[1]/(gamesToPlay / 100.0)) + "% of times. ");
         System.out.println("The remainder were ties.");
     }
 
-    public static int playTurn(Player player){
+    public static int playTurn(Player player, Cards card){
         int diceLeft = 8;
 
         while (true){
@@ -81,7 +86,7 @@ public class PiratenKarpen {
             player.showDice();
         }
 
-        int points = player.calculatePoints();
+        int points = player.calculatePoints(card);
         
         if (debugMode){
             logger.debug("Total points for player : " + points);
