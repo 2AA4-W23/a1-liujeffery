@@ -45,37 +45,49 @@ public class PiratenKarpen {
         for (int k = 1; k <= gamesToPlay; k++){
             int [] pointsPerPlayer = new int[2];
 
-            Cards card = deck.draw();
+            while (pointsPerPlayer[0] <= 6000 && pointsPerPlayer[1] <= 6000){
+                Cards card = deck.draw();
 
-            pointsPerPlayer[0] = playTurn(player1, card);
+                pointsPerPlayer[0] += playTurn(player1, card);
 
-            card = deck.draw();
-            
-            pointsPerPlayer[1] = playTurn(player2, card);
-            
+                card = deck.draw();
+
+                pointsPerPlayer[1] += playTurn(player2, card);
+            }
+
+            if (debugMode){
+                logger.debug("Player 1: " + pointsPerPlayer[0]);
+                logger.debug("Player 2: " + pointsPerPlayer[1]);
+            }
+
+            if (pointsPerPlayer[1] > 6000 && pointsPerPlayer[0] <= 6000){
+                Cards card = deck.draw();
+                pointsPerPlayer[0] += playTurn(player1, card);
+            }
+
             if (pointsPerPlayer[0] > pointsPerPlayer[1]){
                 if (debugMode){
-                    logger.debug("Player 1 wins round " + k);
+                    logger.debug("Player 1 wins game " + k);
                 }
                 wins[0] ++;
             }
             else if (pointsPerPlayer[0] < pointsPerPlayer[1]){
                 if (debugMode){
-                    logger.debug("Player 2 wins round " + k);
+                    logger.debug("Player 2 wins game " + k);
                 }
                 wins[1] ++; 
             }
             else{
                 if (debugMode){
-                    logger.debug("Round " + k + " is a tie");
+                    logger.debug("Game " + k + " is a tie");
                 }
             }
 
             player1.reset();
             player2.reset();
         }
-        System.out.println("Player 1 won " + Math.round(wins[0]/(gamesToPlay / 100.0)) + "% of times.");
-        System.out.println("Player 2 won " + Math.round(wins[1]/(gamesToPlay / 100.0)) + "% of times. ");
+        System.out.println("Player 1 won " + Math.round(wins[0]/(gamesToPlay / 100.0)) + "% of games.");
+        System.out.println("Player 2 won " + Math.round(wins[1]/(gamesToPlay / 100.0)) + "% of games.");
         System.out.println("The remainder were ties.");
     }
 
@@ -102,5 +114,9 @@ public class PiratenKarpen {
         }
 
         return points;
+    }
+
+    public void playGame(){
+
     }
 }
